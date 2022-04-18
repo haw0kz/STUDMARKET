@@ -1,27 +1,38 @@
 from django.shortcuts import render
 
+from products.models import ProductCategory,Product
 # Create your views here.
 
 def index(requests):
-    return render(requests,'products/index.html')
+    context = {
+        'title': "StudMarket"
+    }
+    return render(requests,'products/index.html',context)
 
 def about(requests):
-    return render(requests,'products/about.html')
+    context = {
+        'title': "About us"
+    }
+    return render(requests,'products/about.html',context)
 
-def blogdetail(requests):
-    return render(requests,'products/blog-detail.html')
 
 def contact(requests):
-    return render(requests,'products/contact.html')
+    context = {
+        'title': "Contact"
+    }
+    return render(requests,'products/contact.html',context)
 
 def product(requests):
-    return render(requests,'products/product.html')
+    context = {
+        'title': "Products",
+        'categories' : ProductCategory.objects.all(),
+        'products': Product.objects.all(),
+    }
+    return render(requests,'products/product.html',context)
 
-def productdetail(requests):
-    return render(requests,'products/product-detail.html')
-
-def shopingcart(requests):
-    return render(requests,'products/shoping-cart.html')
 
 def account(requests):
-    return render(requests,'products/account.html')
+    context = {
+        'title': "Account"
+    }
+    return render(requests,'products/account.html',context)

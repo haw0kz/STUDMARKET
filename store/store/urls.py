@@ -15,18 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-from products.views import index,about,contact,blogdetail,product,productdetail,shopingcart,account
+from django.conf.urls.static import static
+from products.views import index,about,contact,product,account
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = 'index'),
     path('product/', product, name = 'product'),
-    path('blog-detail/', blogdetail, name = 'blogdetail'),
     path('contact/', contact, name = 'contact'),
     path('about/', about, name = 'about'),
-    path('productdetail/', productdetail, name = 'productdetail'),
-    path('shopingcart/', shopingcart, name = 'shopingcart'),
     path('account/', account, name='account'),
 
 ]
+
+if settings.DEBUG :
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

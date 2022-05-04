@@ -34,8 +34,9 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
 <!--===============================================================================================-->
 </head>
-<body class="animsition">
 
+
+<body class="animsition">
 	<!-- Header -->
 	<header class="header-v4">
 		<!-- Header desktop -->
@@ -48,12 +49,12 @@
 
 					<div class="right-top-bar flex-w h-full">
 
-						<a href="{% url 'account' %} " class="flex-c-m trans-04 p-lr-25">
-							Аккаунт
+						<a href="{% url 'users:account' %} " class="flex-c-m trans-04 p-lr-25">
+							Личный кабинет
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Ру
+						<a href="{% url 'users:login' %}" class="flex-c-m trans-04 p-lr-25">
+							Войти
 						</a>
 
 					</div>
@@ -73,19 +74,19 @@
 						<ul class="main-menu">
 
 							<li>
-								<a href="{% url 'product' %}">Учёба</a>
+								<a href="{% url 'products:index' %}">Учёба</a>
 							</li>
 
 							<li>
-								<a href="{% url 'product' %}">Техника</a>
+								<a href="{% url 'products:index' %}">Техника</a>
 							</li>
 
 							<li>
-								<a href="{% url 'product' %}">Мебель</a>
+								<a href="{% url 'products:index' %}">Мебель</a>
 							</li>
 
 							<li>
-								<a href="{% url 'product' %}">Одежда</a>
+								<a href="{% url 'products:index' %}">Одежда</a>
 							</li>
 
 							<li>
@@ -129,7 +130,7 @@
 				<li>
 					<div class="right-top-bar flex-w h-full">
 
-						<a href="{% url 'account' %}" class="flex-c-m p-lr-10 trans-04">
+						<a href="{% url 'users:account' %}" class="flex-c-m p-lr-10 trans-04">
 							Аккаунт
 						</a>
 
@@ -147,15 +148,15 @@
 				</li>
 
 				<li>
-					<a href="{% url 'product' %}">Техника</a>
+					<a href="{% url 'products:index' %}">Техника</a>
 				</li>
 
 				<li>
-					<a href="{% url 'product' %}">Мебель</a>
+					<a href="{% url 'products:index' %}">Мебель</a>
 				</li>
 
 				<li>
-					<a href="{% url 'product' %}">Одежда</a>
+					<a href="{% url 'products:index' %}">Одежда</a>
 				</li>
 
 				<li>
@@ -195,25 +196,25 @@
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="{% url 'products:index' %}" class="stext-107 cl7 hov-cl1 trans-04">
 								Учёба
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="{% url 'products:index' %}" class="stext-107 cl7 hov-cl1 trans-04">
 								Мебель
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="{% url 'products:index' %}" class="stext-107 cl7 hov-cl1 trans-04">
 								Техника
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="{% url 'about' %}" class="stext-107 cl7 hov-cl1 trans-04">
 								О нас
 							</a>
 						</li>

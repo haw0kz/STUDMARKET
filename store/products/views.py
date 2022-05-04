@@ -22,7 +22,7 @@ def contact(requests):
     }
     return render(requests,'products/contact.html',context)
 
-def product(requests):
+def products(requests):
     context = {
         'title': "Products",
         'categories' : ProductCategory.objects.all(),
@@ -30,9 +30,3 @@ def product(requests):
     }
     return render(requests,'products/product.html',context)
 
-
-def account(requests):
-    context = {
-        'title': "Account"
-    }
-    return render(requests,'products/account.html',context)

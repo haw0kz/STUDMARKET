@@ -1,0 +1,41 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "name": "Футболка белая",
+      "image": "products_images/T93C8DCZ62.jpg",
+      "description": "",
+      "short_description": "",
+      "price": "1600.00",
+      "quantity": 1,
+      "category": 3
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "name": "Компьютер ASUS",
+      "image": "products_images/изображение_2022-04-19_001351497.png",
+      "description": "",
+      "short_description": "",
+      "price": "32000.00",
+      "quantity": 0,
+      "category": 1
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "name": "Комплект Канцтоваров",
+      "image": "products_images/Stationery_Notepad_Pencils_White_background_540805_2048x2732.jpg",
+      "description": "",
+      "short_description": "",
+      "price": "560.00",
+      "quantity": 0,
+      "category": 4
+    }
+  }
+]

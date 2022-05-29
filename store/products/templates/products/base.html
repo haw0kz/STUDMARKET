@@ -27,6 +27,11 @@
 <!--===============================================================================================-->
 
     {% block JSProduct %} {% endblock %}
+        <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+
 
 <!--===============================================================================================-->
 <!--===============================================================================================-->
@@ -48,14 +53,21 @@
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-
+                        {% if user.is_authenticated %}
 						<a href="{% url 'users:account' %} " class="flex-c-m trans-04 p-lr-25">
-							Личный кабинет
+							{{ user.username }}
 						</a>
+
+                        <a href="{% url 'users:logout' %}" class="flex-c-m trans-04 p-lr-25">
+							Выйти
+						</a>
+
+                        {% else %}
 
 						<a href="{% url 'users:login' %}" class="flex-c-m trans-04 p-lr-25">
 							Войти
 						</a>
+                        {% endif %}
 
 					</div>
 				</div>
@@ -70,34 +82,26 @@
 					</a>
 
 					<!-- Menu desktop -->
-                <div class="menu-desktop">
+                    <div class="menu-desktop">
 						<ul class="main-menu">
 
-							<li>
-								<a href="{% url 'products:index' %}">Учёба</a>
+                            <li>
+							<a href="{% url 'products:index' %}">Каталог товаров</a>
 							</li>
-
-							<li>
-								<a href="{% url 'products:index' %}">Техника</a>
-							</li>
-
-							<li>
-								<a href="{% url 'products:index' %}">Мебель</a>
-							</li>
-
-							<li>
-								<a href="{% url 'products:index' %}">Одежда</a>
-							</li>
-
+{#                            {% for cat in categories %}#}
+{#							<li>#}
+{#								<a href="{% url 'products:index' %}">{{ cat.name }}</a>#}
+{#							</li>#}
+{#                            {% endfor %}#}
 							<li>
 								<a href="{% url 'about' %}">О нас</a>
 							</li>
 
 							<li>
-								<a href="{% url 'contact' %}">Написать нам</a>
+								<a href="{% url 'contact' %}">Наши фотографии</a>
 							</li>
 						</ul>
-					</div>
+                    </div>
 					{% block IconHeader  %} {% endblock %}
 				</nav>
 			</div>

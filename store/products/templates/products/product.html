@@ -104,13 +104,16 @@
 		<div class="container">
 			<div class="flex-w flex-sb-m p-b-52">
 				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                     Всё
+                    </button>
                     {% for category in categories %}
-                        <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+                        <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{ category.name }}">
 						{{ category.name }}
                         </button>
                     {% endfor %}
 
-				</div>
+                </div>
 
 				<div class="flex-w flex-c-m m-tb-10">
 					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
@@ -267,39 +270,137 @@
 			</div>
 
 			<div class="row isotope-grid">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-					<!-- Block2 -->
-                    {% for product in products %}
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="/media/{{ product.image }}" alt="IMG-PRODUCT">
+                <!-- Block2 -->
 
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
-						</div>
+                        {% for product in prododejda %}
+                        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item Одежда">
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+                                    <img src="/media/{{ product.image }}" alt="IMG-PRODUCT">
 
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<span class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									{{ product.name }}
-								</span>
+                                    <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+                                       Информация
+                                    </a>
+                                </div>
 
-								<span class="stext-105 cl3">
-									{{ product.price }}
-								</span>
-							</div>
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="block2-txt-child1 flex-col-l ">
+                                        <span class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            {{ product.name }}
+                                        </span>
 
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="/static/images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="/static/images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-                    {% endfor%}
-				</div>
+                                        <span class="stext-105 cl3">
+                                            {{ product.price }}
+                                        </span>
+                                    </div>
+
+                                    <div class="block2-txt-child2 flex-r p-t-3">
+                                        <a class="btn-addwish-b2 dis-block pos-relative " href="{% url 'products:basket_add' product.id %}">
+                                            <img class="icon-heart1 dis-block trans-04" src="/static/images/icons/icon-heart-01.png" alt="ICON">
+                                            <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/static/images/icons/icon-heart-02.png" alt="ICON">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% for product in prodtehnica %}
+                        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item Техника">
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+                                    <img src="/media/{{ product.image }}" alt="IMG-PRODUCT">
+
+                                    <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04  ">
+                                        Информация
+                                    </a>
+                                </div>
+
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="block2-txt-child1 flex-col-l ">
+                                        <span class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            {{ product.name }}
+                                        </span>
+
+                                        <span class="stext-105 cl3">
+                                            {{ product.price }}
+                                        </span>
+                                    </div>
+
+                                    <div class="block2-txt-child2 flex-r p-t-3">
+                                        <a class="btn-addwish-b2 dis-block pos-relative " href="{% url 'products:basket_add' product.id %}">
+                                            <img class="icon-heart1 dis-block trans-04" src="/static/images/icons/icon-heart-01.png" alt="ICON">
+                                            <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/static/images/icons/icon-heart-02.png" alt="ICON">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% for product in prodmebel %}
+                        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item Мебель">
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+                                    <img src="/media/{{ product.image }}" alt="IMG-PRODUCT">
+
+                                    <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04  ">
+                                        Информация
+                                    </a>
+                                </div>
+
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="block2-txt-child1 flex-col-l ">
+                                        <span class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            {{ product.name }}
+                                        </span>
+
+                                        <span class="stext-105 cl3">
+                                            {{ product.price }}
+                                        </span>
+                                    </div>
+
+                                    <div class="block2-txt-child2 flex-r p-t-3">
+                                        <a class="btn-addwish-b2 dis-block pos-relative " href="{% url 'products:basket_add' product.id %}">
+                                            <img class="icon-heart1 dis-block trans-04" src="/static/images/icons/icon-heart-01.png" alt="ICON">
+                                            <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/static/images/icons/icon-heart-02.png" alt="ICON">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% for product in prodycheba %}
+                        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item Учеба">
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+                                    <img src="/media/{{ product.image }}" alt="IMG-PRODUCT">
+
+                                    <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+                                        Информация
+                                    </a>
+                                </div>
+
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="block2-txt-child1 flex-col-l ">
+                                        <span class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            {{ product.name }}
+                                        </span>
+
+                                        <span class="stext-105 cl3">
+                                            {{ product.price }}
+                                        </span>
+                                    </div>
+
+                                    <div class="block2-txt-child2 flex-r p-t-3">
+                                        <a class="btn-addwish-b2 dis-block pos-relative " href="{% url 'products:basket_add' product.id %}">
+                                            <img class="icon-heart1 dis-block trans-04" src="/static/images/icons/icon-heart-01.png" alt="ICON">
+                                            <img class="icon-heart2 dis-block trans-04 ab-t-l" src="/static/images/icons/icon-heart-02.png" alt="ICON">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
 			</div>
 
 			<!-- Load more -->
@@ -315,48 +416,49 @@
 
 {% block Modal1 %}
 
-   <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+  <!-- Modal1 -->
+	<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
 		<div class="overlay-modal1 js-hide-modal1"></div>
 
 		<div class="container">
 			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
 				<button class="how-pos3 hov3 trans-04 js-hide-modal1">
-					<img src="/static/images/icons/icon-close.png" alt="CLOSE">
+					<img src="images/icons/icon-close.png" alt="CLOSE">
 				</button>
 
 				<div class="row">
-					<div class="col-md-6 col-lg-7 p-b-30">
+					<div class="col-md-6 col-lg-7 p-b-10">
 						<div class="p-l-25 p-r-30 p-lr-0-lg">
 							<div class="wrap-slick3 flex-sb flex-w">
 								<div class="wrap-slick3-dots"></div>
 								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
 								<div class="slick3 gallery-lb">
-									<div class="item-slick3" data-thumb="images/product-detail-01.jpg">
+									<div class="item-slick3" data-thumb="images/compas-01.jpg">
 										<div class="wrap-pic-w pos-relative">
-											<img src="/static/images/product-detail-01.jpg" alt="IMG-PRODUCT">
+											<img src="images/compas-01.jpg" alt="IMG-PRODUCT">
 
-											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/compas-01.jpg">
 												<i class="fa fa-expand"></i>
 											</a>
 										</div>
 									</div>
 
-									<div class="item-slick3" data-thumb="images/product-detail-02.jpg">
+									<div class="item-slick3" data-thumb="images/compas-02.jpg">
 										<div class="wrap-pic-w pos-relative">
-											<img src="/static/images/product-detail-02.jpg" alt="IMG-PRODUCT">
+											<img src="images/compas-02.jpg" alt="IMG-PRODUCT">
 
-											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/compas-02.jpg">
 												<i class="fa fa-expand"></i>
 											</a>
 										</div>
 									</div>
 
-									<div class="item-slick3" data-thumb="images/product-detail-03.jpg">
+									<div class="item-slick3" data-thumb="images/compas-03.jpg">
 										<div class="wrap-pic-w pos-relative">
-											<img src="/static/images/product-detail-03.jpg" alt="IMG-PRODUCT">
+											<img src="images/compas-03.jpg" alt="IMG-PRODUCT">
 
-											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg">
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/compas-03.jpg">
 												<i class="fa fa-expand"></i>
 											</a>
 										</div>
@@ -369,103 +471,466 @@
 					<div class="col-md-6 col-lg-5 p-b-30">
 						<div class="p-r-50 p-t-5 p-lr-0-lg">
 							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-								Lightweight Jacket
+								Набор для чертения
 							</h4>
 
 							<span class="mtext-106 cl2">
-								$58.79
+								500.00₽
 							</span>
 
 							<p class="stext-102 cl3 p-t-23">
-								Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+								Связаться с продавцом Артем</br>по номеру +7-963-894-52-37
 							</p>
 
 							<!--  -->
 							<div class="p-t-33">
 								<div class="flex-w flex-r-m p-b-10">
 									<div class="size-203 flex-c-m respon6">
-										Size
+										Город
 									</div>
 
 									<div class="size-204 respon6-next">
-										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2" name="time">
-												<option>Choose an option</option>
-												<option>Size S</option>
-												<option>Size M</option>
-												<option>Size L</option>
-												<option>Size XL</option>
-											</select>
-											<div class="dropDownSelect2"></div>
-										</div>
+										Москва
 									</div>
 								</div>
 
 								<div class="flex-w flex-r-m p-b-10">
 									<div class="size-203 flex-c-m respon6">
-										Color
+										Универ
 									</div>
 
 									<div class="size-204 respon6-next">
-										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2" name="time">
-												<option>Choose an option</option>
-												<option>Red</option>
-												<option>Blue</option>
-												<option>White</option>
-												<option>Grey</option>
-											</select>
-											<div class="dropDownSelect2"></div>
-										</div>
+										РГУ нефти и газа им. Губкина
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Улица
+									</div>
+
+									<div class="size-204 respon6-next">
+										Бутлерова
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Дом
+									</div>
+
+									<div class="size-204 respon6-next">
+										3
 									</div>
 								</div>
 
 								<div class="flex-w flex-r-m p-b-10">
 									<div class="size-204 flex-w flex-m respon6-next">
-										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
 
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+										<!--<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+											Вернуться
+										</button>-->
 
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
-
-										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											Add to cart
-										</button>
+										<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+											Вернуться
+										</a>
 									</div>
 								</div>
 							</div>
 
-							<!--  -->
-							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
-								<div class="flex-m bor9 p-r-10 m-r-11">
-									<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
-										<i class="zmdi zmdi-favorite"></i>
-									</a>
-								</div>
-
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
-									<i class="fa fa-facebook"></i>
-								</a>
-
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
-									<i class="fa fa-twitter"></i>
-								</a>
-
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
-									<i class="fa fa-google-plus"></i>
-								</a>
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- Modal2 -->
+	<div class="wrap-modal1 js-modal2 p-t-60 p-b-20">
+		<div class="overlay-modal1 js-hide-modal1"></div>
+
+		<div class="container">
+			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+				<button class="how-pos3 hov3 trans-04 js-hide-modal2">
+					<img src="images/icons/icon-close.png" alt="CLOSE">
+				</button>
+
+				<div class="row">
+					<div class="col-md-6 col-lg-7 p-b-10">
+						<div class="p-l-25 p-r-30 p-lr-0-lg">
+							<div class="wrap-slick3 flex-sb flex-w">
+								<div class="wrap-slick3-dots"></div>
+								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+								<div class="slick3 gallery-lb">
+									<div class="item-slick3" data-thumb="images/gazelle-01.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="images/gazelle-01.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/gazelle-01.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="item-slick3" data-thumb="images/gazelle-02.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="images/gazelle-02.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/gazelle-02.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="item-slick3" data-thumb="images/gazelle-03.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="images/gazelle-03.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/gazelle-03.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-5 p-b-30">
+						<div class="p-r-50 p-t-5 p-lr-0-lg">
+							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+								Кросовки Adidas Gaselle
+							</h4>
+
+							<span class="mtext-106 cl2">
+								1500.00₽
+							</span>
+
+							<p class="stext-102 cl3 p-t-23">
+								Связаться с продавцом Виктор</br>по номеру +7-918-821-51-47
+							</p>
+
+							<!--  -->
+							<div class="p-t-33">
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Город
+									</div>
+
+									<div class="size-204 respon6-next">
+										Москва
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Универ
+									</div>
+
+									<div class="size-204 respon6-next">
+										МГУ им. Ломоносова
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Улица
+									</div>
+
+									<div class="size-204 respon6-next">
+										Колмогорова
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Дом
+									</div>
+
+									<div class="size-204 respon6-next">
+										1
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-204 flex-w flex-m respon6-next">
+
+										<!--<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+											Вернуться
+										</button>-->
+
+										<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+											Вернуться
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal3 -->
+	<div class="wrap-modal1 js-modal3 p-t-60 p-b-20">
+		<div class="overlay-modal1 js-hide-modal1"></div>
+
+		<div class="container">
+			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+				<button class="how-pos3 hov3 trans-04 js-hide-modal3">
+					<img src="images/icons/icon-close.png" alt="CLOSE">
+				</button>
+
+				<div class="row">
+					<div class="col-md-6 col-lg-7 p-b-10">
+						<div class="p-l-25 p-r-30 p-lr-0-lg">
+							<div class="wrap-slick3 flex-sb flex-w">
+								<div class="wrap-slick3-dots"></div>
+								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+								<div class="slick3 gallery-lb">
+									<div class="item-slick3" data-thumb="images/costum.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="images/costum.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/gazelle-01.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="item-slick3" data-thumb="images/costum.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="images/costum.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/gazelle-02.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="item-slick3" data-thumb="images/costum.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="images/costum.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/gazelle-03.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-5 p-b-30">
+						<div class="p-r-50 p-t-5 p-lr-0-lg">
+							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+								Костюм
+							</h4>
+
+							<span class="mtext-106 cl2">
+								3500.00₽
+							</span>
+
+							<p class="stext-102 cl3 p-t-23">
+								Связаться с продавцом Алексей</br>по номеру +7-917-854-23-91
+							</p>
+
+							<!--  -->
+							<div class="p-t-33">
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Город
+									</div>
+
+									<div class="size-204 respon6-next">
+										Москва
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Универ
+									</div>
+
+									<div class="size-204 respon6-next">
+										МГУ им. Ломоносова
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Улица
+									</div>
+
+									<div class="size-204 respon6-next">
+										Колмогорова
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Дом
+									</div>
+
+									<div class="size-204 respon6-next">
+										1
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-204 flex-w flex-m respon6-next">
+
+										<!--<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+											Вернуться
+										</button>-->
+
+										<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+											Вернуться
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal4 -->
+	<div class="wrap-modal1 js-modal4 p-t-60 p-b-20">
+		<div class="overlay-modal1 js-hide-modal1"></div>
+
+		<div class="container">
+			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+				<button class="how-pos3 hov3 trans-04 js-hide-modal4">
+					<img src="images/icons/icon-close.png" alt="CLOSE">
+				</button>
+
+				<div class="row">
+					<div class="col-md-6 col-lg-7 p-b-10">
+						<div class="p-l-25 p-r-30 p-lr-0-lg">
+							<div class="wrap-slick3 flex-sb flex-w">
+								<div class="wrap-slick3-dots"></div>
+								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+								<div class="slick3 gallery-lb">
+									<div class="item-slick3" data-thumb="images/product-06.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="images/product-06.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/gazelle-01.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="item-slick3" data-thumb="images/product-06.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="images/product-06.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/gazelle-02.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="item-slick3" data-thumb="images/product-06.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="images/product-06.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/gazelle-03.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-5 p-b-30">
+						<div class="p-r-50 p-t-5 p-lr-0-lg">
+							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+								Часы
+							</h4>
+
+							<span class="mtext-106 cl2">
+								500.00₽
+							</span>
+
+							<p class="stext-102 cl3 p-t-23">
+								Связаться с продавцом Максим</br>по номеру +7-996-851-62-43
+							</p>
+
+							<!--  -->
+							<div class="p-t-33">
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Город
+									</div>
+
+									<div class="size-204 respon6-next">
+										Казань
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Универ
+									</div>
+
+									<div class="size-204 respon6-next">
+										КФУ
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Улица
+									</div>
+
+									<div class="size-204 respon6-next">
+										Баумана
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Дом
+									</div>
+
+									<div class="size-204 respon6-next">
+										12
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-204 flex-w flex-m respon6-next">
+
+										<!--<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+											Вернуться
+										</button>-->
+
+										<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+											Вернуться
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 {% endblock %}

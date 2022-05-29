@@ -3,8 +3,11 @@
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$/products/fixtures/categories.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/products/fixtures/products.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/products/models.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/products/views.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/users/forms.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/users/templates/users/account.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/users/views.py" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1251" />
   </component>
 </project>

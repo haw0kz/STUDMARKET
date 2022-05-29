@@ -7,9 +7,11 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <title>Store - Авторизация</title>
-    <link href="/static/css/auth.css" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
-            crossorigin="anonymous"></script>
+        <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/auth.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
 </head>
@@ -29,13 +31,20 @@
 
 					<div class="right-top-bar flex-w h-full">
 
-						<a href="{% url 'users:account' %} " class="flex-c-m trans-04 p-lr-25">
-							Личный кабинет
-						</a>
 
-						<a href="{% url 'users:login' %}" class="flex-c-m trans-04 p-lr-25">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'users:account' %} " class="flex-c-m trans-04 p-lr-25">
+							{{ user.username }}
+						    </a>
+
+                            <a href="{% url 'users:logout' %}" class="flex-c-m trans-04 p-lr-25">
+							Выйти
+						    </a>
+                        {% else %}
+                            <a href="{% url 'users:login' %}" class="flex-c-m trans-04 p-lr-25">
 							Войти
-						</a>
+						    </a>
+                        {% endif %}
 
 					</div>
 				</div>
@@ -52,21 +61,8 @@
 					<!-- Menu desktop -->
                 <div class="menu-desktop">
 						<ul class="main-menu">
-
 							<li>
-								<a href="{% url 'products:index' %}">Учёба</a>
-							</li>
-
-							<li>
-								<a href="{% url 'products:index' %}">Техника</a>
-							</li>
-
-							<li>
-								<a href="{% url 'products:index' %}">Мебель</a>
-							</li>
-
-							<li>
-								<a href="{% url 'products:index' %}">Одежда</a>
+								<a href="{% url 'index' %}">Главная страница</a>
 							</li>
 
 							<li>
@@ -77,7 +73,7 @@
 								<a href="{% url 'contact' %}">Написать нам</a>
 							</li>
 						</ul>
-					</div>
+                    </div>
 					{% block IconHeader  %} {% endblock %}
 				</nav>
 			</div>
@@ -154,13 +150,9 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5">
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert"
-                             style="margin-top: 50px;">
-                            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+                        {% block error %}
+
+                        {% endblock %}
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
 
                             </div>

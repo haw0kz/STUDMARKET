@@ -1,11 +1,28 @@
 {% extends 'users/base.html' %}
 
+{% block error %}
+
+    {% if messages or form.errors %}
+        <div class="alert {% if messages %} alert-success {% else %} alert-warning {% endif %} alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% else %}
+                 {{ form.non_field_errors}}
+            {% endif %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+
+{% endblock %}
 
 {% block login %}
 
-<div class="card shadow-lg border-0 rounded-lg mt-5">
-    <div class="card-header"><h3 class="text-center font-weight-light my-4">Авторизация</h3>
-                            </div>
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                          <div class="card-header"><h3 class="text-center font-weight-light my-4">Авторизация</h3></div>
                             <div class="card-body">
                                 <form action="{% url 'users:login' %}" method ="post">
                                     {% csrf_token %}
@@ -23,8 +40,10 @@
                                     </div>
                                 </form>
                             </div>
+
                             <div class="card-footer text-center">
                                 <div class="small"><a href="{% url 'users:register' %}">Нужен аккаунт? Зарегистрируйся!</a></div>
                             </div>
                         </div>
+
 {% endblock %}

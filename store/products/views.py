@@ -28,19 +28,30 @@ def contact(requests):
     }
     return render(requests,'products/contact.html',context)
 
-def products(requests):
+def products(requests,category_id=None):
     context = {
         'title': "Products",
         'categories' : ProductCategory.objects.all(),
-        'products': Product.objects.all(),
-        'prodtehnica':Product.objects.filter(category_id=1),
-        'prododejda': Product.objects.filter(category_id=3),
-        'prodycheba': Product.objects.filter(category_id=4),
-        'prodmebel': Product.objects.filter(category_id=2),
+    }
+    if category_id:
+        context.update({'products':Product.objects.filter(category_id=category_id)})
+    else:
+        context.update({'products': Product.objects.all()})
+    return render(requests,'products/product.html',context)
 
-        'prod2':Product.objects.filter(pk=2),
+def prodvoz(requests):
+    context = {
+        'title': "Products",
+        'categories' : ProductCategory.objects.all(),
+        'products':Product.objects.all().order_by('price'),
+    }
+    return render(requests,'products/product.html',context)
 
-
+def prodyb(requests):
+    context = {
+        'title': "Products",
+        'categories' : ProductCategory.objects.all(),
+        'products': Product.objects.all().order_by('-price'),
     }
     return render(requests,'products/product.html',context)
 

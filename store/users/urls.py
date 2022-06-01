@@ -1,5 +1,7 @@
+from django.contrib import admin
 from django.urls import path
 from users.views import login,register,account,logout
+
 
 app_name = 'users'
 

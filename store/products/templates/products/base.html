@@ -84,15 +84,14 @@
 					<!-- Menu desktop -->
                     <div class="menu-desktop">
 						<ul class="main-menu">
-
-                            <li>
-							<a href="{% url 'products:index' %}">Каталог товаров</a>
+                            {% for cat in categories %}
+							<li>
+								<a href="{% url 'products:category' cat.id %}">{{ cat.name }}</a>
 							</li>
-{#                            {% for cat in categories %}#}
-{#							<li>#}
-{#								<a href="{% url 'products:index' %}">{{ cat.name }}</a>#}
-{#							</li>#}
-{#                            {% endfor %}#}
+                            {% endfor %}
+                            <li>
+								<a href="{% url 'products:index' %}">Все товары</a>
+							</li>
 							<li>
 								<a href="{% url 'about' %}">О нас</a>
 							</li>

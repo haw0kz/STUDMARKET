@@ -33,20 +33,6 @@
                         </div>
                     </div>
                 </div>
-                <div class = 'form-row'>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="small mb-1" for="{{ form.city.id_for_label }}">Город</label>
-                            {{ form.city }}
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="small mb-1" for="{{ form.university.id_for_label }}">Университет</label>
-                            {{ form.university }}
-                        </div>
-                    </div>
-                </div>
                 <div class="form-row mb-2">
                     <div class="col-lg-12">
                         <div class="custom-file">
@@ -61,9 +47,22 @@
                         {{ form.username }}
                     </div>
                     <div class="col-lg-6">
-                        <label class="small mb-1" for="{{ form.email.id_for_label }}">Адрес электронной
-                            почты</label>
+                        <label class="small mb-1" for="{{ form.email.id_for_label }}">Адрес электронной почты</label>
                         {{ form.email }}
+                    </div>
+                </div>
+                <div class = 'form-row'>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="small mb-1" for="{{ form.city.id_for_label }}">Город</label>
+                            {{ form.city }}
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="small mb-1" for="{{ form.university.id_for_label }}">Университет</label>
+                            {{ form.university }}
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
